@@ -18,9 +18,15 @@ public class Main {
 
         // Chaining Functions
         Function<Integer, Integer> f1 = (n) -> n*7;
-        Function<Integer, Integer> f2 = (r) -> r*17;
+        Function<Integer, Integer> f2 = (r) -> r-17;
         Function<Integer, Integer> f3 = f1.andThen(f2);
         System.out.println(f3.apply(10));
+
+        // Compose Functions - inverter chaining order
+        Function<Integer, Integer> f1a = (n) -> n*7;
+        Function<Integer, Integer> f2a = (r) -> r-17;
+        Function<Integer, Integer> f3a = f1a.compose(f2a);
+        System.out.println(f3a.apply(10));
     }
 
 

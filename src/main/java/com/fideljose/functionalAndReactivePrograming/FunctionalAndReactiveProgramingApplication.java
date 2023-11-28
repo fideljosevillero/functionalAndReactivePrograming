@@ -7,8 +7,11 @@ import com.fideljose.functionalAndReactivePrograming.DataDummy.Data;
 import com.fideljose.functionalAndReactivePrograming.model.Person;
 import com.fideljose.functionalAndReactivePrograming.model.Pet;
 import com.fideljose.functionalAndReactivePrograming.patterns.iterator.MyArrayList;
+import com.fideljose.functionalAndReactivePrograming.patterns.strategy.Stock;
+import com.fideljose.functionalAndReactivePrograming.patterns.strategy.StockFilter;
 import com.sun.source.doctree.SystemPropertyTree;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -29,8 +32,10 @@ public class FunctionalAndReactiveProgramingApplication {
 //		getListAllPetsFavoriteFood(Data.people()).forEach(System.out::println);
 //		getPets(Data.people()).forEach(System.out::println);
 //		getPartitionPetsName(Data.people()).forEach((k, v) -> System.out.println( k + "--- " + v));
-		iteratornPattern();
+//		iteratornPattern();
+		strategyPattern();
 	}
+
 
 	static Stream<Person> setYeartoPetsEachPerson(Stream<Person> stream, int newPetsYears){
 		return stream.peek(p -> p.getPets()
@@ -93,5 +98,21 @@ public class FunctionalAndReactiveProgramingApplication {
 		MyArrayList list = new MyArrayList(new Object[] {17, 7, 314, 87, 9, 01, 16});
 		list.forEach(System.out::println);
 	}
+
+	public static void strategyPattern(){
+		List<Stock> stockList = new ArrayList<>();
+
+		stockList.add(new Stock("AAPL", 318.65, 10));
+		stockList.add(new Stock("MSFT", 166.86, 45));
+		stockList.add(new Stock("Google", 99, 12.5));
+		stockList.add(new Stock("AMZ", 1866.74, 45));
+		stockList.add(new Stock("GOOGL", 1480.20, 3.5));
+		stockList.add(new Stock("AAPL", 318.65, 8));
+		stockList.add(new Stock("AMZ", 1866.74, 9));
+
+		StockFilter.getListStockBySymbol(stockList, "AAPL")
+				.forEach(System.out::println);
+	}
+
 
 }

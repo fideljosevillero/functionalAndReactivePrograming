@@ -6,6 +6,8 @@ package com.fideljose.functionalAndReactivePrograming;
 import com.fideljose.functionalAndReactivePrograming.DataDummy.Data;
 import com.fideljose.functionalAndReactivePrograming.model.Person;
 import com.fideljose.functionalAndReactivePrograming.model.Pet;
+import com.fideljose.functionalAndReactivePrograming.patterns.iterator.MyArrayList;
+import com.sun.source.doctree.SystemPropertyTree;
 
 import java.util.Comparator;
 import java.util.List;
@@ -26,8 +28,8 @@ public class FunctionalAndReactiveProgramingApplication {
 //		System.out.println(getAllPetsFavoriteFood(Data.people()));
 //		getListAllPetsFavoriteFood(Data.people()).forEach(System.out::println);
 //		getPets(Data.people()).forEach(System.out::println);
-		getPartitionPetsName(Data.people()).forEach((k, v) -> System.out.println( k + "--- " + v));
-
+//		getPartitionPetsName(Data.people()).forEach((k, v) -> System.out.println( k + "--- " + v));
+		iteratornPattern();
 	}
 
 	static Stream<Person> setYeartoPetsEachPerson(Stream<Person> stream, int newPetsYears){
@@ -85,6 +87,11 @@ public class FunctionalAndReactiveProgramingApplication {
 		return stream.flatMap(person -> person.getPets().stream())
 				.collect(Collectors.partitioningBy(p -> p.getName().length() > 5));
 				//.forEach((k, v) -> System.out.println("--- " + k + "--- " + v));
+	}
+
+	public static void iteratornPattern(){
+		MyArrayList list = new MyArrayList(new Object[] {17, 7, 314, 87, 9, 01, 16});
+		list.forEach(System.out::println);
 	}
 
 }

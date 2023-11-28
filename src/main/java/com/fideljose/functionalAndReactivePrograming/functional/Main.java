@@ -1,4 +1,4 @@
-package com.fideljose.trainingStreamJava.functional;
+package com.fideljose.functionalAndReactivePrograming.functional;
 
 import java.util.Locale;
 import java.util.function.Function;

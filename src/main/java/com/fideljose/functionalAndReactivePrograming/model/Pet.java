@@ -1,4 +1,4 @@
-package com.fideljose.trainingStreamJava.model;
+package com.fideljose.functionalAndReactivePrograming.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

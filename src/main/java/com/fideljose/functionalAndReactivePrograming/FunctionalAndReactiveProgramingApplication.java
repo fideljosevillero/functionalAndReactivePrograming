@@ -1,21 +1,20 @@
-package com.fideljose.trainingStreamJava;
+package com.fideljose.functionalAndReactivePrograming;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.fideljose.trainingStreamJava.DataDummy.Data;
-import com.fideljose.trainingStreamJava.model.Person;
-import com.fideljose.trainingStreamJava.model.Pet;
+import com.fideljose.functionalAndReactivePrograming.DataDummy.Data;
+import com.fideljose.functionalAndReactivePrograming.model.Person;
+import com.fideljose.functionalAndReactivePrograming.model.Pet;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 //@SpringBootApplication
-public class TrainingStreamJavaApplication {
+public class FunctionalAndReactiveProgramingApplication {
 
 	public static void main(String[] args) {
 

@@ -1,10 +1,10 @@
-//package com.fideljose.trainingStreamJava;
+//package com.fideljose.FunctionalAndReactivePrograming;
 //
 //import org.junit.jupiter.api.Test;
 //import org.springframework.boot.test.context.SpringBootTest;
 //
 //@SpringBootTest
-//class TrainingStreamJavaApplicationTests {
+//class FunctionalAndReactiveProgramingTests {
 //
 //	@Test
 //	void contextLoads() {

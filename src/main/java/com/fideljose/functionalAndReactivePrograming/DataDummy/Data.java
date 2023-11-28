@@ -1,7 +1,7 @@
-package com.fideljose.trainingStreamJava.DataDummy;
+package com.fideljose.functionalAndReactivePrograming.DataDummy;
 
-import com.fideljose.trainingStreamJava.model.Person;
-import com.fideljose.trainingStreamJava.model.Pet;
+import com.fideljose.functionalAndReactivePrograming.model.Person;
+import com.fideljose.functionalAndReactivePrograming.model.Pet;
 
 import java.util.List;
 import java.util.stream.Stream;

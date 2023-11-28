@@ -1,4 +1,4 @@
-package com.fideljose.trainingStreamJava.functional;
+package com.fideljose.functionalAndReactivePrograming.functional;
 
 
 public class MyRunnable implements Runnable{

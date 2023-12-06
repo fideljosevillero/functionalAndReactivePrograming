@@ -32,7 +32,8 @@ public class FunctionalAndReactiveProgramingApplication {
 //		iteratornPattern();
 //		strategyPattern();
 //		reduceStreamSumMethod();
-		reduceStreamStringMethod();
+//		reduceStreamStringMethod();
+		numericStream1();
 	}
 
 
@@ -125,6 +126,14 @@ public class FunctionalAndReactiveProgramingApplication {
 				.peek(System.out::println)
 				.reduce("init: ", (s1, s2) -> s1.concat(s2));
 		System.out.println(reduce);
+	}
+
+	private static void numericStream1() {
+		OptionalDouble petYearAverage = Data.people().map(p -> p.getPets())
+				.flatMap(pet -> pet.stream())
+				.mapToInt(pe -> pe.getYear())
+				.average();
+		System.out.println(petYearAverage.orElseGet(() -> 0.0));
 	}
 
 

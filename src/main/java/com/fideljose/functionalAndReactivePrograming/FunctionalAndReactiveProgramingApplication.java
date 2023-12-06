@@ -122,6 +122,7 @@ public class FunctionalAndReactiveProgramingApplication {
 	public static void reduceStreamStringMethod(){
 		String reduce = List.of("cuentos", " ", "de", " ", "los", " ", "hermanos", " ", "Grimm")
 				.stream()
+				.peek(System.out::println)
 				.reduce("init: ", (s1, s2) -> s1.concat(s2));
 		System.out.println(reduce);
 	}

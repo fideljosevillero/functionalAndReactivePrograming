@@ -11,10 +11,7 @@ import com.fideljose.functionalAndReactivePrograming.patterns.strategy.Stock;
 import com.fideljose.functionalAndReactivePrograming.patterns.strategy.StockFilter;
 import com.sun.source.doctree.SystemPropertyTree;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,7 +30,9 @@ public class FunctionalAndReactiveProgramingApplication {
 //		getPets(Data.people()).forEach(System.out::println);
 //		getPartitionPetsName(Data.people()).forEach((k, v) -> System.out.println( k + "--- " + v));
 //		iteratornPattern();
-		strategyPattern();
+//		strategyPattern();
+//		reduceStreamSumMethod();
+		reduceStreamStringMethod();
 	}
 
 
@@ -112,6 +111,19 @@ public class FunctionalAndReactiveProgramingApplication {
 
 		StockFilter.getListStockBySymbol(stockList, "AAPL")
 				.forEach(System.out::println);
+	}
+
+	public static void reduceStreamSumMethod(){
+		System.out.println( List.of(1,2,3,3,3,3,3,3)
+				.stream()
+				.reduce(0, (a, b) -> a+b));
+	}
+
+	public static void reduceStreamStringMethod(){
+		String reduce = List.of("cuentos", " ", "de", " ", "los", " ", "hermanos", " ", "Grimm")
+				.stream()
+				.reduce("init: ", (s1, s2) -> s1.concat(s2));
+		System.out.println(reduce);
 	}
 
 

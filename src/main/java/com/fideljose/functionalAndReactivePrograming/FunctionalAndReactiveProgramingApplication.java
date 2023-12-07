@@ -13,6 +13,7 @@ import com.sun.source.doctree.SystemPropertyTree;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 //@SpringBootApplication
@@ -33,7 +34,8 @@ public class FunctionalAndReactiveProgramingApplication {
 //		strategyPattern();
 //		reduceStreamSumMethod();
 //		reduceStreamStringMethod();
-		numericStream1();
+//		numericStream1();
+		numericStream2();
 	}
 
 
@@ -131,9 +133,31 @@ public class FunctionalAndReactiveProgramingApplication {
 	private static void numericStream1() {
 		OptionalDouble petYearAverage = Data.people().map(p -> p.getPets())
 				.flatMap(pet -> pet.stream())
-				.mapToInt(pe -> pe.getYear())
+				.mapToInt(Pet::getYear)
 				.average();
 		System.out.println(petYearAverage.orElseGet(() -> 0.0));
+	}
+
+	private static void numericStream2(){
+		// sum
+		int intStream = IntStream.of(1, 2, 3, 4, 5, 6, 71).sum();
+		System.out.println("Sum " + intStream);
+
+		// max
+		OptionalInt max = IntStream.of(1, 2, 3, 4, 5, 6, 71).max();
+		System.out.println("Max " + max.getAsInt());
+
+		// min
+		OptionalInt intStreamMin = IntStream.of(1, 2, 3, 4, 5, 6, 71).min();
+		System.out.println("Min " + intStreamMin.getAsInt());
+
+		// average
+		OptionalDouble avg = IntStream.of(1, 2, 3, 4, 5, 6, 71).average();
+		System.out.println("Average " + avg.getAsDouble());
+
+		// summaryStatistics
+		IntSummaryStatistics summaryStatistics = IntStream.of(1, 2, 3, 4, 5, 6, 71).summaryStatistics();
+		System.out.println("summaryStatistics " + summaryStatistics);
 	}
 
 

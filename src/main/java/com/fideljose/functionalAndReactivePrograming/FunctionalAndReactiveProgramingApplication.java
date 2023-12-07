@@ -155,6 +155,10 @@ public class FunctionalAndReactiveProgramingApplication {
 		OptionalDouble avg = IntStream.of(1, 2, 3, 4, 5, 6, 71).average();
 		System.out.println("Average " + avg.getAsDouble());
 
+		// average 2
+		double avg2 = IntStream.of().average().orElse(0.0);
+		System.out.println("Average " + avg2);
+
 		// summaryStatistics
 		IntSummaryStatistics summaryStatistics = IntStream.of(1, 2, 3, 4, 5, 6, 71).summaryStatistics();
 		System.out.println("summaryStatistics " + summaryStatistics);

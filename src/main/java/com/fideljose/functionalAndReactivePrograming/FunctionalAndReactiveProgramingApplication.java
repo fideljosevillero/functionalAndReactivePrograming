@@ -36,7 +36,8 @@ public class FunctionalAndReactiveProgramingApplication {
 //		reduceStreamStringMethod();
 //		numericStream1();
 //		numericStream2();
-		boundedStreams();
+//		boundedStreams();
+		infiniteIterate();
 	}
 
 
@@ -205,6 +206,21 @@ public class FunctionalAndReactiveProgramingApplication {
 		Stream<Integer> build = builder.build();
 		build.forEach(System.out::println);
 
+	}
+
+	public static void infiniteIterate(){
+//		Stream.iterate(1, i -> i*2)
+//				.limit(100)
+//				.forEach(System.out::println);
+//
+//		Stream.iterate("Hi!", t -> t.concat(" - - - "))
+//				.limit(10000)
+//				.forEach(System.out::println);
+
+//		Stream.generate(() -> "Hello!")
+//				.forEach(System.out::println);
+		Stream.generate( () -> new Random().nextDouble() )
+				.forEach((value) -> System.out.println(value*100));
 	}
 
 }

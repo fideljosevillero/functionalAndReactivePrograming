@@ -1,7 +1,10 @@
 package com.fideljose.functionalAndReactivePrograming.functional;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Locale;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -47,6 +50,7 @@ public class Main {
 
 //        Tail Call - Recursion
         System.out.println(reFactory(4));
+
         int accumulator = 1;
         System.out.println(tailReFactoryOptimiced(4, accumulator));
     }

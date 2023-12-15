@@ -9,9 +9,14 @@ import com.fideljose.functionalAndReactivePrograming.model.Pet;
 import com.fideljose.functionalAndReactivePrograming.patterns.iterator.MyArrayList;
 import com.fideljose.functionalAndReactivePrograming.patterns.strategy.Stock;
 import com.fideljose.functionalAndReactivePrograming.patterns.strategy.StockFilter;
-import com.sun.source.doctree.SystemPropertyTree;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -37,7 +42,9 @@ public class FunctionalAndReactiveProgramingApplication {
 //		numericStream1();
 //		numericStream2();
 //		boundedStreams();
-		infiniteIterate();
+//		infiniteIterate();
+//		flatMapStream();
+		flatMapFile();
 	}
 
 
@@ -221,6 +228,37 @@ public class FunctionalAndReactiveProgramingApplication {
 //				.forEach(System.out::println);
 		Stream.generate( () -> new Random().nextDouble() )
 				.forEach((value) -> System.out.println(value*100));
+	}
+
+	public static void flatMapStream(){
+		Stream<String> a = Stream.of("Stream 1a", "Stream 2a");
+		Stream<String> b = Stream.of("Stream 1b", "Stream 2b");
+
+		Stream<Stream<String>> a1 = Stream.of(a, b);
+
+		Stream.of(a, b)
+				.flatMap(text -> text)
+				.forEach(System.out::println);
+	}
+
+	public static void flatMapFile() {
+		Path path = Paths.get("src/main/resources/document.txt");
+
+		try(Stream<String> noteBook = Files.lines(path)){
+
+			AtomicInteger count = new AtomicInteger();
+
+			noteBook
+				.flatMap(lineText -> Arrays.stream(lineText.split(" ")))
+				.collect(Collectors.toList())
+					.stream().peek((i) -> count.getAndIncrement())
+				.forEach(System.out::println);
+
+			System.out.println("word counter: " + count);
+
+		}catch (IOException e){
+			System.out.println(e.toString());
+		}
 	}
 
 }

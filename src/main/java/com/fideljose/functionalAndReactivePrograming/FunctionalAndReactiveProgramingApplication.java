@@ -35,7 +35,8 @@ public class FunctionalAndReactiveProgramingApplication {
 //		reduceStreamSumMethod();
 //		reduceStreamStringMethod();
 //		numericStream1();
-		numericStream2();
+//		numericStream2();
+		boundedStreams();
 	}
 
 
@@ -164,5 +165,46 @@ public class FunctionalAndReactiveProgramingApplication {
 		System.out.println("summaryStatistics " + summaryStatistics);
 	}
 
+	public static void boundedStreams() {
+		List<Integer> list = List.of(1,2,3,4,5,6,7);
+		Stream<Integer> stream = list.stream();
+		stream.forEach(System.out::println);
+
+		Map<Integer, String> map = Map.of(1, "one", 2, "two", 3, "Three", 4, "four", 5, "five");
+		Collection<String> values = map.values();
+		System.out.println(values);
+
+		Stream<Integer> keys = map.keySet().stream();
+		keys.forEach(System.out::println);
+
+		Stream<Map.Entry<Integer, String>> stream1 = map.entrySet().stream();
+		stream1.forEach(System.out::println);
+
+		Stream<String> streamString = Stream.of("Hi!", "I", "am", "back", "...");
+		streamString.forEach(System.out::println);
+
+		System.out.println("--- Integer Stream ---");
+
+		Integer[] integerArray = {1,2,6,7,9,34,57,79};
+		Stream<Integer> integerStream = Arrays.stream(integerArray);
+		integerStream.forEach(System.out::println);
+
+		System.out.println("--- int Stream ---");
+
+		int[] intArray = {1,2,6,7,9,34,57,79};
+		IntStream intStream = Arrays.stream(intArray);
+		intStream.forEach(System.out::println);
+
+		System.out.println("--- Constructor (build) ----");
+		Stream.Builder<Integer> builder = Stream.builder();
+		builder.add(6796);
+		builder.add(24);
+		builder.add(34);
+		builder.add(1);
+		builder.add(879);
+		Stream<Integer> build = builder.build();
+		build.forEach(System.out::println);
+
+	}
 
 }
